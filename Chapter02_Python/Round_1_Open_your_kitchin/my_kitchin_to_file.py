@@ -4,14 +4,14 @@ def register_kitchin_owner():
     owner_name = input("사장님의 이름을 알려주세요:")
     print(owner_name + " 사장님 앞으로 멋진 식당을 만들어봐요")    
     
-    f_kitchin_name = open("owner_name.txt", 'w')
+    f_kitchin_name = open("../owner_name.txt", 'w')
     f_kitchin_name.write(owner_name)
     f_kitchin_name.close()
       
-    os.path.isfile("kitchin_menu.txt")
+    os.path.isfile("../kitchin_menu.txt")
 
 def hello_kitchin_owner():
-    f_kithcin_name = open("owner_name.txt", 'r')
+    f_kithcin_name = open("../owner_name.txt", 'r')
     while True:
         line = f_kithcin_name.readline()
         if not line: break
@@ -29,14 +29,14 @@ def register_menu():
     print(menu02)
     print(menu03)
     
-    f_menu = open("kitchin_menu.txt", 'w')
-    f_menu.write(menu01)
-    f_menu.write(menu02)
-    f_menu.write(menu03)
+    f_menu = open("../kitchin_menu.txt", 'w')
+    f_menu.write(menu01 + '\n')
+    f_menu.write(menu02 + '\n')
+    f_menu.write(menu03 + '\n')
     f_menu.close()
     
 def print_menu_list():
-    f_menu = open("kitchin_menu.txt", 'r')
+    f_menu = open("../kitchin_menu.txt", 'r')
     while True:
         line = f_menu.readline()
         if not line: break
@@ -46,12 +46,12 @@ def print_menu_list():
 
 def main():
     print("안녕하세요 사장님!")
-    if(os.path.isfile("owner_name.txt")):
+    if(os.path.isfile("../owner_name.txt")):
         hello_kitchin_owner()
     else:
         register_kitchin_owner()
     
-    if(os.path.isfile("kitchin_menu.txt")):
+    if(os.path.isfile("../kitchin_menu.txt")):
         print_menu_list()
     else:
         register_menu()
